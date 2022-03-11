@@ -1,6 +1,8 @@
 from calendar import c
+from ssl import DER_cert_to_PEM_cert
 import time
 from selenium import webdriver
+from bs4 import BeautifulSoup
 
 options = webdriver.ChromeOptions()
 
@@ -18,9 +20,11 @@ try:
     gr_input.send_keys('s3y6ea')
 
     login_button = driver.find_element_by_name('Login').click()
-    link = driver.find_elements_by_tag_name('a')
-    for i in link:
-        print(i.get_attribute('href'))
+    # link = driver.find_elements_by_tag_name('a')[0].click()
+    key = driver.find_element_by_id('diploma-iframe')
+    # print(key.get_attribute('src'))
+    driver.get(key.get_attribute('src'))
+    link = driver.find_elements_by_tag_name('a')[0].click()
 
     time.sleep(5)
 
