@@ -1,5 +1,5 @@
 import time
-from matplotlib.pyplot import draw
+import keyboard
 from selenium import webdriver
 from bs4 import BeautifulSoup
 from selenium.webdriver.common.keys import Keys
@@ -28,17 +28,21 @@ while(True):
         driver.get(key.get_attribute('src'))
         link = driver.find_elements_by_tag_name('a')[1].get_attribute('href')
 
-        # driver.alert().dismiss()
+
         time.sleep(2)
         driver.get(link)
 
-        # create alert object
         time.sleep(2)
-        # sendKeys = driver.find_element_by_partial_link_text('Открыть приложение "Zoom Meetings"')
-        # sendKeys.send_keys(Keys.ENTER)
-        time.sleep(5)
+        sendKeys = driver.find_element_by_class_name('mbTuDeF1')
 
-        time.sleep(1000)
+        # sendCookies = driver.find_element_by_id('onetrust-accept-btn-handler')
+        # sendCookies.click()
+        keyboard.send('left')
+        keyboard.send('enter')
+        time.sleep(5)
+        sendKeys.click()
+        keyboard.send('enter')
+        time.sleep(5)
 
         # get alert text
 
