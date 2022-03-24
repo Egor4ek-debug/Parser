@@ -1,7 +1,6 @@
 import time
 import keyboard
 from selenium import webdriver
-from bs4 import BeautifulSoup
 from selenium.webdriver.common.keys import Keys
 while(True):
 
@@ -26,8 +25,7 @@ while(True):
         key = driver.find_element_by_id('diploma-iframe')
         # print(key.get_attribute('src'))
         driver.get(key.get_attribute('src'))
-        link = driver.find_elements_by_tag_name('a')[1].get_attribute('href')
-
+        link = driver.find_elements_by_tag_name('a')[0].get_attribute('href')
 
         time.sleep(2)
         driver.get(link)
@@ -39,10 +37,7 @@ while(True):
         # sendCookies.click()
         keyboard.send('left')
         keyboard.send('enter')
-        time.sleep(5)
-        sendKeys.click()
-        keyboard.send('enter')
-        time.sleep(5)
+        time.sleep(2700)
 
         # get alert text
 
